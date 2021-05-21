@@ -18,8 +18,10 @@
       "#types/*": ["./types/*"],
       "@components/*": ["./components/*"],
       "@shared/*": ["./shared/*"],
+      "@styles/*": ["./styles*"],
       "@images/*": ["./assets/images/*"],
       "@icons/*": ["./assets/icons/*"],
+      
     }
   },
   "exclude": ["node_modules"],

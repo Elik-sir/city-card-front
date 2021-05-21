@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { theme } from '@styles/theme';
 import Head from 'next/head';
 import AppLayout from '@shared/AppLayout';
 import '../src/styles/main.css';
@@ -62,14 +65,20 @@ function App(props: any) {
   const authResponse = true;
   const authError = true;
   return (
-    <>
-      <Head>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
-        <meta charSet='utf-8' />
-        <title>{pageTitle}</title>
-      </Head>
-      {!authResponse && !authError ? <AppLoader /> : <AppContent {...props} />}
-    </>
+    <Provider>
+      <MuiThemeProvider theme={theme}>
+        <Head>
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+          <meta charSet='utf-8' />
+          <title>{pageTitle}</title>
+        </Head>
+        {!authResponse && !authError ? (
+          <AppLoader />
+        ) : (
+          <AppContent {...props} />
+        )}
+      </MuiThemeProvider>
+    </Provider>
   );
 }
 
