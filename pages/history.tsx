@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-const Home = () => {
+const History = () => {
   return (
     <div className='w-full flex justify-center items-center'>
       <div>
@@ -21,4 +21,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default History;

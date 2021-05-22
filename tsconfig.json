@@ -18,9 +18,10 @@
       "#types/*": ["./types/*"],
       "@components/*": ["./components/*"],
       "@shared/*": ["./shared/*"],
-      "@styles/*": ["./styles*"],
+      "@styles/*": ["./styles/*"],
       "@images/*": ["./assets/images/*"],
       "@icons/*": ["./assets/icons/*"],
+      "@redux/*": ["./redux/*"],
       
     }
   },
