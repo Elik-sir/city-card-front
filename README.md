@@ -17,11 +17,18 @@
 * Tailwind
 * Material UI
 
-## Getting Started
+## Демо
 
-First, run the development server:
+здесь будет ссылка
+
+## Запуск
 
 ```bash
+
+sudo apt install nodejs
+sudo apt install npm 
+
+
 npm run dev
 # or
 yarn dev
