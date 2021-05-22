@@ -11,6 +11,11 @@ export const useStyles = makeStyles({
     },
     textFieldWhite:{
       color:"white"
+    },
+    authText:{
+      color:"white",
+      width:"100%",
+      marginBottom:"8px"
     }
   });
   

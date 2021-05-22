@@ -20,7 +20,13 @@ export default function ServiceCard({ name }) {
   const classes = useStyles();
 
   return (
-    <Paper elevation={3} className={classes.root} onClick={() => setOpen(true)}>
+    <Paper
+      elevation={3}
+      className={classes.root}
+      onClick={() =>
+        name === 'Забронировать столик в ресторане' && setOpen(true)
+      }
+    >
       {name}
       <RestoranWindow open={open} handleClose={() => setOpen(false)} />
     </Paper>

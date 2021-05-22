@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import { TextField, Button } from '@material-ui/core';
 import { signIn } from 'redux/user/actions';
+import { useStyles } from 'shared/styles';
 const LoginPage = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ const LoginPage = () => {
   const handleAuth = () => {
     dispatch(signIn({ email, password }));
   };
+  const classes = useStyles();
   return (
     <div
       style={{ backgroundColor: 'rgb(39,170,225)' }}
@@ -20,22 +22,21 @@ const LoginPage = () => {
         <div className='w-full'>
           <TextField
             label='Email'
-            className='w-full mb-8'
+            className={classes.authText}
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             label='Пароль'
-            className='w-full'
+            className={classes.authText}
             onChange={(e) => setPassword(e.target.value)}
             type='password'
           />
         </div>
         <div className='flex flex-col  mt-16 justify-center gap-8  align-middle'>
           <Button
-            variant='outlined'
-            color='primary'
             onClick={handleAuth}
             disabled={isFetching}
+            className={classes.button}
           >
             <span className=''>Авторизоваться</span>
           </Button>

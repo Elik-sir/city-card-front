@@ -14,19 +14,21 @@ const AppLayout = ({ children }: any) => {
   });
 
   return (
-    <div
-      style={{ backgroundColor: 'rgb(39,170,225)' }}
-      className=' h-screen pt-24'
-      {...handlers}
-    >
-      {isFetching && (
-        <div className='mx-auto w-50'>
-          <CircularProgress />
-        </div>
-      )}
-      {children}
+    <>
+      <div
+        style={{ backgroundColor: 'rgb(39,170,225)' }}
+        className='h-full min-h-screen pt-24'
+        {...handlers}
+      >
+        {isFetching && (
+          <div className='mx-auto w-50'>
+            <CircularProgress />
+          </div>
+        )}
+        {children}
+      </div>
       <NavBar />
-    </div>
+    </>
   );
 };
 

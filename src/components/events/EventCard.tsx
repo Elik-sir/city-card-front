@@ -41,11 +41,14 @@ export default function SimpleCard({ name, description, timestamp, cost }) {
           {description}
         </Typography>
         <p className='text-p3 mt-6'>{`Дата: ${timestamp}  `}</p>
-        <p className='text-p3'>{cost === 0 ? 'бесплатно' : `${cost} ₽`}</p>
+        <p className='text-p3'>{!Number(cost) ? 'бесплатно' : `${cost} ₽`}</p>
       </CardContent>
-      <CardActions>
+      <CardActions className='flex justify-between'>
         <Button size='small' variant='outlined' color='primary'>
           Подробнее
+        </Button>
+        <Button size='small' variant='outlined' color='primary'>
+          {Number(cost) ? 'Купить' : 'Зарегистрироваться'}
         </Button>
       </CardActions>
     </Card>
