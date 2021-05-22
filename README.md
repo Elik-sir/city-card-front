@@ -40,7 +40,12 @@ yarn dev
 Откройте в браузере [http://localhost:3000](http://localhost:3000) 
 
 
+## Запуск в докере
 
+```
+docker build -t citi-card-fron .
+docker run
+```
 
 # Разработчики
 
