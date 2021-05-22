@@ -1,4 +1,5 @@
-const nextConfig = {
+const withPWA = require('next-pwa');
+const nextConfig = withPWA({
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.node = {
@@ -9,6 +10,6 @@ const nextConfig = {
     return config;
   },
   distDir: 'build',
-};
+});
 
 module.exports = nextConfig;

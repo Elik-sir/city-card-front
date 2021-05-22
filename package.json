@@ -18,6 +18,7 @@
     "dotenv": "^10.0.0",
     "jsona": "^1.9.2",
     "next": "10.2.2",
+    "next-pwa": "^5.2.21",
     "postcss": "^8.3.0",
     "postcss-cli": "^8.3.1",
     "postcss-preset-env": "^6.7.0",
