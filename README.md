@@ -27,6 +27,9 @@
 
 sudo apt install nodejs
 sudo apt install npm 
+
+yarn
+#or
 npm install
 
 yarn dev
