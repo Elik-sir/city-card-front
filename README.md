@@ -1,4 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Реализованная функциональность
+* Профили (регистрация и авторизация)
+* Карты (создание счета, пополнение и оплата услуг, просмотр баланса)
+* История транзакций
+* События и услуги
+
+## Особенность проекта в следующем
+* Кроссплатформенное приложение
+* Удобное моментальное создание виртуального счета
+
+## Основной стек технологий веба
+
+* React
+* Nextjs
+* Typescript
+* Redux
+* Tailwind
+* Material UI
 
 ## Getting Started
 
@@ -18,14 +35,11 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+# Разработчики
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* [Дмитрий Чудинов](https://t.me/dchudik) - backend
+* [Новиков Семен](https://t.me/semyon_dev) - backend
+* [Эльдар Курманалиев](https://t.me/elik_sir) - web app
 
 ## Deploy on Vercel
 
