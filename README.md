@@ -21,6 +21,8 @@
 
 [ссылка](http://citi-card.dchudinov.ru)
 
+Реквизиты тестового пользователя: email: admin@test.ru, пароль: testuser
+
 ## Запуск
 
 ```bash
