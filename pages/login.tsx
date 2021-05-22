@@ -12,7 +12,10 @@ const LoginPage = () => {
     dispatch(signIn({ email, password }));
   };
   return (
-    <div className='bg-orange_3 h-screen w-screen flex justify-center align-middle items-center'>
+    <div
+      style={{ backgroundColor: 'rgb(39,170,225)' }}
+      className=' h-screen w-screen flex justify-center align-middle items-center'
+    >
       <div className='flex flex-col w-3/4'>
         <div className='w-full'>
           <TextField
@@ -27,7 +30,7 @@ const LoginPage = () => {
             type='password'
           />
         </div>
-        <div className='flex flex-col  mt-16 justify-center  align-middle'>
+        <div className='flex flex-col  mt-16 justify-center gap-8  align-middle'>
           <Button
             variant='outlined'
             color='primary'
@@ -36,11 +39,11 @@ const LoginPage = () => {
           >
             <span className=''>Авторизоваться</span>
           </Button>
-          <div className='w-auto'>
+          <Button variant='outlined'>
             <Link href='registration'>
-              <a className='text-p4'>Зарегистрироваться</a>
+              <a>Зарегистрироваться</a>
             </Link>
-          </div>
+          </Button>
         </div>
       </div>
     </div>

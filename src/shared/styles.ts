@@ -5,5 +5,12 @@ export const useStyles = makeStyles({
       position:"fixed",
       bottom:0
     },
+    button:{
+      backgroundColor:"white",
+      color:"black"
+    },
+    textFieldWhite:{
+      color:"white"
+    }
   });
   

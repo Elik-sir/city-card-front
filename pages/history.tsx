@@ -1,22 +1,33 @@
-import { Button } from '@material-ui/core';
+import BuyCard from 'components/history/buyCard';
 const History = () => {
+  const data = [
+    {
+      name: 'Лента',
+      timestamp: '10.05.2021 10:22',
+      cost: 1000,
+    },
+    {
+      name: 'Магнит',
+      timestamp: '10.05.2021 12:22',
+      cost: 1000,
+    },
+    {
+      name: 'Дикси',
+      timestamp: '10.05.2021 13:22',
+      cost: -1000,
+    },
+  ];
   return (
     <div className='w-full flex justify-center items-center'>
-      <div>
-        <img
-          className='block'
-          src='/assets/images/card.jpg'
-          alt='Picture of the author'
-          width={330}
-        />
-        <div className='flex justify-between items-center mt-16'>
-          <Button variant='outlined'>
-            <span>Оплатить</span>
-          </Button>
-          <Button variant='contained' color='secondary'>
-            <span>Пополнить</span>
-          </Button>
-        </div>
+      <div className='flex flex-col items-center w-full'>
+        {data.map(({ name, timestamp, cost }) => (
+          <BuyCard
+            key={`${timestamp}`}
+            name={name}
+            timestamp={timestamp}
+            cost={cost}
+          />
+        ))}
       </div>
     </div>
   );

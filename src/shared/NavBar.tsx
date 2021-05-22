@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useStyles } from './styles';
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
-import { Home, Event, History } from '@material-ui/icons';
+import { Home, Event, History, Store } from '@material-ui/icons';
 
 const NavBar = () => {
   const router = useRouter();
@@ -17,6 +17,11 @@ const NavBar = () => {
       className={classes.navbar}
     >
       <BottomNavigationAction label='Главная' icon={<Home />} value='/' />
+      <BottomNavigationAction
+        label='Услуги'
+        icon={<Store />}
+        value='/services'
+      />
       <BottomNavigationAction
         label='События'
         icon={<Event />}

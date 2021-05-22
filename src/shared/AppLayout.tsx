@@ -14,7 +14,11 @@ const AppLayout = ({ children }: any) => {
   });
 
   return (
-    <div className='bg-orange_3 h-screen pt-24' {...handlers}>
+    <div
+      style={{ backgroundColor: 'rgb(39,170,225)' }}
+      className=' h-screen pt-24'
+      {...handlers}
+    >
       {isFetching && (
         <div className='mx-auto w-50'>
           <CircularProgress />

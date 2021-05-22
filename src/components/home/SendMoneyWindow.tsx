@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateBalance } from 'redux/user/actions';
 import {
   Button,
   TextField,
@@ -11,6 +13,7 @@ import {
 const SendMoneyWindow = ({ open, handleClose }) => {
   const [money, setMoney] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
+  const dispatch = useDispatch();
   return (
     <Dialog
       open={open}
@@ -47,7 +50,7 @@ const SendMoneyWindow = ({ open, handleClose }) => {
             })
               .then((data) => {
                 setIsFetching(false);
-                console.log(data);
+                dispatch(updateBalance());
                 handleClose();
               })
               .catch(() => {

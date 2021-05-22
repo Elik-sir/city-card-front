@@ -61,7 +61,10 @@ const RegistrationPage = () => {
     }
   };
   return (
-    <div className='bg-orange_3 h-screen w-screen flex justify-center align-middle items-center'>
+    <div
+      style={{ backgroundColor: 'rgb(39,170,225)' }}
+      className=' h-screen w-screen flex justify-center align-middle items-center'
+    >
       <div className='flex flex-col w-3/4'>
         <div className='w-full'>
           {fieldsName.map(({ name, label }) =>
