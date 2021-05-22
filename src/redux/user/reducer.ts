@@ -1,11 +1,12 @@
 import {SIGN_IN,SIGN_OUT,
         REGISTER,
         FETCH_END,
-        FETCH_START} from './constants'
+        FETCH_START,
+        UPDATE_BALANCE} from './constants'
 
 const defaultState={
     isFetching:false,
-
+    signin:false,
 }
 
 const userReducer =(state=defaultState,action)=>{
@@ -19,7 +20,13 @@ switch(action.type){
         return{...state,isFetching:false,error:false}
     }
     case REGISTER:{
-        return {...state,user:action.payload}
+        return {...state,user:action.payload,signin:true}
+    }
+    case SIGN_IN:{
+        return{...state,user:action.payload,signin:true}
+    }
+    case UPDATE_BALANCE:{
+        return {...state, balance:action.payload}
     }
     default:{
         return {...state}

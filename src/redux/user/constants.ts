@@ -5,3 +5,5 @@ export const REGISTER="REGISTER";
 
 export const FETCH_START="FETCH_START";
 export const FETCH_END="FETCH_END";
+
+export const UPDATE_BALANCE="UPDATE_BALANCE"
