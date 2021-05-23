@@ -19,17 +19,19 @@ const Home = () => {
   return (
     <div className='w-full min-h-screen flex flex-col items-center'>
       <div style={{ width: '91%', height: '100%' }}>
-        <div className='flex text-p4 items-center justify-between '>
-          <p
-            style={{ borderBottom: '2px solid orange' }}
-            className='text-white mb-4'
-          >
-            Ваш аккаунт ЕСИА не подтверждён
-          </p>
-          <Button>
-            <span className='text-p4 text-white'>Подтвердить</span>
-          </Button>
-        </div>
+        {role === 'client' && (
+          <div className='flex text-p4 items-center justify-between '>
+            <p
+              style={{ borderBottom: '2px solid orange' }}
+              className='text-white mb-4'
+            >
+              Ваш аккаунт ЕСИА не подтверждён
+            </p>
+            <Button>
+              <span className='text-p4 text-white'>Подтвердить</span>
+            </Button>
+          </div>
+        )}
         <img
           className='block'
           src='/assets/images/card.jpg'
