@@ -75,7 +75,7 @@ const CreateEvent = ({ open, handleClose }) => {
           Отмена
         </Button>
         <Button onClick={handleClose} color='primary'>
-          Забронировать
+          Создать
         </Button>
       </DialogActions>
     </Dialog>

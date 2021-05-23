@@ -17,7 +17,7 @@ const Home = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   return (
-    <div className='w-full h-screen flex flex-col items-center'>
+    <div className='w-full min-h-screen flex flex-col items-center'>
       <div style={{ width: '91%', height: '100%' }}>
         <div className='flex text-p4 items-center justify-between '>
           <p
