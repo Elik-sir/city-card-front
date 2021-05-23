@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { AppStateType } from 'redux/store';
 import { useStyles } from './styles';
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
-import { Home, Event, History, Store } from '@material-ui/icons';
+import { Home, Event, History, Store, PhotoCamera } from '@material-ui/icons';
 
 const NavBar = () => {
   const router = useRouter();
   const classes = useStyles();
+  const role = useSelector(({ userReducer }: AppStateType) => userReducer.role);
   return (
     <BottomNavigation
       value={router.route}
@@ -22,6 +25,13 @@ const NavBar = () => {
         icon={<Store />}
         value='/services'
       />
+      {role === 'worker' && (
+        <BottomNavigationAction
+          label='Сканировать'
+          icon={<PhotoCamera />}
+          value='/scancode'
+        />
+      )}
       <BottomNavigationAction
         label='События'
         icon={<Event />}

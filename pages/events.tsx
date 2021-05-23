@@ -1,6 +1,9 @@
 import { Button } from '@material-ui/core';
 import SimpleCard from 'components/events/EventCard';
+import { useSelector } from 'react-redux';
+import { AppStateType } from 'redux/store';
 const Events = () => {
+  const role = useSelector(({ userReducer }: AppStateType) => userReducer.role);
   const data = [
     {
       name: 'Спектакль Ромео и Джульета',
@@ -23,13 +26,14 @@ const Events = () => {
   ];
   return (
     <div className='w-full flex justify-center items-center px-16 pb-55'>
-      <div className='flex flex-col items-center w-full'>
+      <div className='grid grid-cols-1 items-center w-full'>
         {data.map(({ name, description, timestamp, cost }) => (
           <SimpleCard
             name={name}
             description={description}
             timestamp={timestamp}
             cost={cost}
+            role={role}
           />
         ))}
       </div>

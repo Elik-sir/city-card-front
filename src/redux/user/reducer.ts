@@ -10,7 +10,8 @@ import {
   const defaultState = {
     isFetching: false,
     signin: false,
-    balance:0
+    balance:0,
+    role:"worker"
   };
   
   const userReducer = (state = defaultState, action) => {
@@ -32,6 +33,9 @@ import {
       }
       case UPDATE_BALANCE: {
         return { ...state, balance: action.payload };
+      }
+      case "DEMO":{
+        return{...state,signin:true,role:action.payload}
       }
       default: {
         return { ...state };

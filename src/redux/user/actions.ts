@@ -81,3 +81,7 @@ export const updateBalance = () => {
         }
       };
   }
+
+  export const demo=(payload)=>({
+    type:"DEMO",payload
+  })

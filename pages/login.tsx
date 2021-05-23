@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import { TextField, Button } from '@material-ui/core';
-import { signIn } from 'redux/user/actions';
+import { signIn, demo } from 'redux/user/actions';
 import { useStyles } from 'shared/styles';
 import { AppStateType } from 'redux/store';
 const LoginPage = () => {
@@ -43,10 +43,27 @@ const LoginPage = () => {
           >
             <span className=''>Авторизоваться</span>
           </Button>
+
           <Button variant='outlined'>
             <Link href='registration'>
               <a>Зарегистрироваться</a>
             </Link>
+          </Button>
+          <Button
+            onClick={() => {
+              dispatch(demo('worker'));
+            }}
+            className={classes.button}
+          >
+            <span className=''>Демо доступ работник</span>
+          </Button>
+          <Button
+            onClick={() => {
+              dispatch(demo('client'));
+            }}
+            className={classes.button}
+          >
+            <span className=''>Демо доступ клиент</span>
           </Button>
         </div>
       </div>

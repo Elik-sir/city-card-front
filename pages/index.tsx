@@ -5,6 +5,7 @@ import SendMoneyWindow from 'components/home/SendMoneyWindow';
 import PayWindow from 'components/home/PayWindow';
 import { AppStateType } from 'redux/store';
 import { useStyles } from 'shared/styles';
+import EventCard from 'components/events/EventCard';
 const Home = () => {
   const [open, setOpen] = useState(false);
   const [openQr, setOpenQr] = useState(false);
@@ -14,7 +15,7 @@ const Home = () => {
   const classes = useStyles();
   return (
     <div className='w-full flex justify-center items-center'>
-      <div>
+      <div style={{ width: '91%' }}>
         <img
           className='block'
           src='/assets/images/card.jpg'
@@ -30,6 +31,15 @@ const Home = () => {
         <p className='  text-white mt-12'>
           Житель города <span className='text-p4'></span>
         </p>
+        <div className='mt-20 '>
+          <p>Специальное предложение:</p>
+          <EventCard
+            name='Выставка картин'
+            description='Знаменитые картины художников в одном месте...'
+            timestamp='1.06.21'
+            cost='бесплатно'
+          />
+        </div>
         <div className='flex justify-between items-center mt-16'>
           <Button className={classes.button} onClick={() => setOpenQr(true)}>
             <span>Показать</span>

@@ -10,7 +10,7 @@ import {
 
 const useStyles = makeStyles({
   root: {
-    width: '100%%',
+    width: '93%',
     marginBottom: '15px',
   },
   bullet: {
@@ -26,13 +26,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleCard({
-  name,
-  description,
-  timestamp,
-  cost,
-  role,
-}) {
+export default function SimpleCard({ name, description, timestamp, cost }) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -50,20 +44,12 @@ export default function SimpleCard({
         <p className='text-p3'>{!Number(cost) ? 'бесплатно' : `${cost} ₽`}</p>
       </CardContent>
       <CardActions className='flex justify-between'>
-        {role === 'client' ? (
-          <>
-            <Button size='small' variant='outlined' color='primary'>
-              Подробнее
-            </Button>
-            <Button size='small' variant='outlined' color='primary'>
-              {Number(cost) ? 'Купить' : 'Зарегистрироваться'}
-            </Button>
-          </>
-        ) : (
-          <Button size='small' variant='outlined' color='primary'>
-            Редактировать
-          </Button>
-        )}
+        <Button size='small' variant='outlined' color='primary'>
+          Подробнее
+        </Button>
+        <Button size='small' variant='outlined' color='primary'>
+          {Number(cost) ? 'Купить' : 'Зарегистрироваться'}
+        </Button>
       </CardActions>
     </Card>
   );
