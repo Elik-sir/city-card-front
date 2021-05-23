@@ -23,7 +23,16 @@
 
 Реквизиты тестового пользователя: email: admin@test.ru, пароль: testuser
 
-## Запуск
+## Запуск готового docker образа
+
+```
+docker pull semyonbitcoin/city-card-front
+docker run -d -p 3000:3000 semyonbitcoin/city-card-front
+```
+
+Откройте в браузере [http://localhost:3000](http://localhost:3000) 
+
+## Запуск без докера
 
 ```bash
 
@@ -39,11 +48,10 @@ yarn dev
 
 Откройте в браузере [http://localhost:3000](http://localhost:3000) 
 
-
 ## Запуск в докере
 
 ```
-docker build -t citi-card-fron .
+docker build -t citi-card-front .
 docker run
 ```
 
