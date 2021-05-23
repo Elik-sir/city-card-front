@@ -9,6 +9,11 @@ export const useStyles = makeStyles({
       backgroundColor:"white",
       color:"black"
     },
+    button2:{
+      backgroundColor:"white",
+      color:"black",
+      marginBottom:"10px"
+    },
     textFieldWhite:{
       color:"white"
     },

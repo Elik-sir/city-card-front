@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Button } from '@material-ui/core';
 import SimpleCard from 'components/events/EventCard';
 import { useSelector } from 'react-redux';
 import { AppStateType } from 'redux/store';
+import { useStyles } from 'shared/styles';
+import CreateEvent from 'components/events/CreateEvent';
 const Events = () => {
   const role = useSelector(({ userReducer }: AppStateType) => userReducer.role);
   const data = [
@@ -24,9 +27,14 @@ const Events = () => {
       cost: 'бесплатно',
     },
   ];
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
   return (
     <div className='w-full flex justify-center items-center px-16 pb-55'>
-      <div className='grid grid-cols-1 items-center w-full'>
+      <div className='grid grid-cols-1 items-center w-full gap-10'>
+        <Button className={classes.button2} onClick={() => setOpen(true)}>
+          Добавить событие
+        </Button>
         {data.map(({ name, description, timestamp, cost }) => (
           <SimpleCard
             name={name}
@@ -37,6 +45,7 @@ const Events = () => {
           />
         ))}
       </div>
+      <CreateEvent open={open} handleClose={() => setOpen(false)} />
     </div>
   );
 };

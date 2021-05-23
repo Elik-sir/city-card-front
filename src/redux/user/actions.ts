@@ -17,6 +17,8 @@ export const fetchEnd = (status) => ({
   status,
 });
 
+export const signOut=()=>({type:SIGN_OUT})
+
 
 
 export const register = (data) => {

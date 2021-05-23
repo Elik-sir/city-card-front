@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateBalance } from 'redux/user/actions';
+import { useStyles } from 'shared/styles';
 import {
   Button,
   TextField,
@@ -10,10 +11,31 @@ import {
   DialogTitle,
 } from '@material-ui/core';
 
-const SendMoneyWindow = ({ open, handleClose }) => {
+const SendMoneyWindow = ({ open, handleClose, role }) => {
   const [money, setMoney] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
   const dispatch = useDispatch();
+  const classes = useStyles();
+  const clientSubmit = () => {
+    setIsFetching(true);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/pay/money`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+      body: JSON.stringify({ money }),
+    })
+      .then((data) => {
+        setIsFetching(false);
+        dispatch(updateBalance());
+        handleClose();
+      })
+      .catch(() => {
+        setIsFetching(false);
+        console.log('error');
+      });
+  };
   return (
     <Dialog
       open={open}
@@ -21,7 +43,9 @@ const SendMoneyWindow = ({ open, handleClose }) => {
       aria-labelledby='form-dialog-title'
       fullWidth
     >
-      <DialogTitle id='form-dialog-title'>Пополнение карты</DialogTitle>
+      <DialogTitle id='form-dialog-title'>
+        {role === 'client' ? 'Пополнение карты' : 'Введите сумму платежа'}
+      </DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
@@ -29,39 +53,21 @@ const SendMoneyWindow = ({ open, handleClose }) => {
           id='name'
           label='Введите необходимую сумму'
           onChange={(e) => setMoney(Number(e.target.value))}
-          value={money}
           fullWidth
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color='primary'>
+        <Button onClick={handleClose} className={classes.button}>
           Отмена
         </Button>
         <Button
           onClick={() => {
-            setIsFetching(true);
-            fetch(`${process.env.NEXT_PUBLIC_API_URL}/pay/money`, {
-              method: 'post',
-              headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-              },
-              body: JSON.stringify({ money }),
-            })
-              .then((data) => {
-                setIsFetching(false);
-                dispatch(updateBalance());
-                handleClose();
-              })
-              .catch(() => {
-                setIsFetching(false);
-                console.log('error');
-              });
+            clientSubmit();
           }}
-          color='primary'
+          className={classes.button}
           disabled={isFetching}
         >
-          Пополнить
+          {role === 'client' ? 'Пополнить' : 'Далее'}
         </Button>
       </DialogActions>
     </Dialog>

@@ -34,24 +34,19 @@ const AppContent = ({ Component, pageProps }: any) => {
     );
     if (
       (signedIn || jwt) &&
-      (Component.name === 'LoginPage' ||
-        Component.name === 'RegistrationPage') &&
-      router.route !== '/'
+      (router.route === '/registration' || router.route === '/login')
     ) {
       router.push('/');
     }
 
     result =
-      (signedIn || jwt) &&
-      Component.name !== 'LoginPage' &&
-      Component.name !== 'RegistrationPage' ? (
+      signedIn || jwt ? (
         <DefaultContent />
-      ) : Component.name === 'RegistrationPage' ? (
+      ) : router.route === '/registration' ? (
         <RegistrationPage />
       ) : (
         <LoginPage />
       );
-
     setContent(result);
   }, [signedIn, Component, pageProps]);
 
