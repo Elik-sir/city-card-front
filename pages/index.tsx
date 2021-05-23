@@ -3,12 +3,14 @@ import { useSelector } from 'react-redux';
 import { Button, Paper } from '@material-ui/core';
 import SendMoneyWindow from 'components/home/SendMoneyWindow';
 import PayWindow from 'components/home/PayWindow';
-
+import { AppStateType } from 'redux/store';
 import { useStyles } from 'shared/styles';
 const Home = () => {
   const [open, setOpen] = useState(false);
   const [openQr, setOpenQr] = useState(false);
-  const balance = useSelector<any>((store) => store.userReducer.balance);
+  const balance = useSelector(
+    (store: AppStateType) => store.userReducer.balance
+  );
   const classes = useStyles();
   return (
     <div className='w-full flex justify-center items-center'>

@@ -4,11 +4,14 @@ import Link from 'next/link';
 import { TextField, Button } from '@material-ui/core';
 import { signIn } from 'redux/user/actions';
 import { useStyles } from 'shared/styles';
+import { AppStateType } from 'redux/store';
 const LoginPage = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const isFetching = useSelector<any>((store) => store.userReducer.isFetching);
+  const isFetching = useSelector(
+    ({ userReducer }: AppStateType) => userReducer.isFetching
+  );
   const handleAuth = () => {
     dispatch(signIn({ email, password }));
   };

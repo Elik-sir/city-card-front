@@ -10,6 +10,7 @@ import {
   const defaultState = {
     isFetching: false,
     signin: false,
+    balance:0
   };
   
   const userReducer = (state = defaultState, action) => {

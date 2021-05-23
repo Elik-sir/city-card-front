@@ -1,7 +1,8 @@
 module.exports = {
   prefix: '',
   separator: ':',
-  purge: false, // https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
+  purge: ['./pages/**/*.tsx', './src/**/*.tsx', './public/**/*.html'],
+  // purge: false, // https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
   theme: {
     screens: {
       betweenXS_XL: { min: '440px', max: '1280px' },

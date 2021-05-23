@@ -25,8 +25,8 @@ const RegistrationPage = () => {
     type: 'liver',
   });
   const dispatch = useDispatch();
-  const isFetching = useSelector<AppStateType>(
-    ({ userReducer }) => userReducer.isFetching
+  const isFetching = useSelector(
+    ({ userReducer }: AppStateType) => userReducer.isFetching
   );
   const fieldsName = [
     { name: 'email', label: 'Email' },
