@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateBalance } from 'redux/user/actions';
+import { useRouter } from 'next/router';
 import { useStyles } from 'shared/styles';
 import {
   Button,
@@ -36,6 +37,7 @@ const SendMoneyWindow = ({ open, handleClose, role }) => {
         console.log('error');
       });
   };
+  const router = useRouter();
   return (
     <Dialog
       open={open}
@@ -62,7 +64,7 @@ const SendMoneyWindow = ({ open, handleClose, role }) => {
         </Button>
         <Button
           onClick={() => {
-            clientSubmit();
+            role === 'client' ? clientSubmit() : router.push('/scancode');
           }}
           className={classes.button}
           disabled={isFetching}

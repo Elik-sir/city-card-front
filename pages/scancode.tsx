@@ -23,14 +23,16 @@ const Scancode = () => {
     width: 320,
   };
   return (
-    <div className='w-full flex justify-center items-center'>
-      {/* <QrReader
-        delay={delay}
-        style={previewStyle}
-        onError={handleError}
-        onScan={handleScan}
-      />
-      <p>{result}</p> */}
+    <div className='w-full h-screen flex justify-center'>
+      <div className='w-full text-white'>
+        <p style={{ textAlign: 'center', fontWeight: 'bold' }}>
+          Поднесите QR код к камере
+        </p>
+        <div
+          className='h-screen bg-black w-full'
+          style={{ backgroundColor: 'black', color: 'white' }}
+        ></div>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 import { Button, Paper } from '@material-ui/core';
 import SendMoneyWindow from 'components/home/SendMoneyWindow';
 import PayWindow from 'components/home/PayWindow';
@@ -7,6 +8,7 @@ import { AppStateType } from 'redux/store';
 import { signOut } from 'redux/user/actions';
 import { useStyles } from 'shared/styles';
 import EventCard from 'components/events/EventCard';
+import { Router } from 'next/router';
 const Home = () => {
   const [open, setOpen] = useState(false);
   const [openQr, setOpenQr] = useState(false);
@@ -16,6 +18,7 @@ const Home = () => {
   const role = useSelector((store: AppStateType) => store.userReducer.role);
   const classes = useStyles();
   const dispatch = useDispatch();
+  const router = useRouter();
   return (
     <div className='w-full min-h-screen flex flex-col items-center'>
       <div style={{ width: '91%', height: '100%' }}>
@@ -38,15 +41,16 @@ const Home = () => {
           alt='Picture of the author'
           width={330}
         />
-        <p className='  text-white mt-12'>
-          Баланс: {balance || 1000} <span className='text-p4'>₽</span>
+        <p className='text-white mt-12' style={{ fontSize: '26px' }}>
+          Баланс:{' '}
+          <span style={{ fontWeight: 'bold' }}>{balance || 1000} ₽</span>
         </p>
         {role === 'client' && (
           <p className='  text-white mt-12'>
             Баллы: {58} <span className='text-p4'></span>
           </p>
         )}
-        <p className='  text-white mt-12'>
+        <p className='  text-white mt-12' style={{ fontSize: '24px' }}>
           {role === 'client' ? 'Житель города ' : 'Сотрудник'}
         </p>
 
@@ -63,7 +67,12 @@ const Home = () => {
           </div>
         )}
         <div className='flex justify-between items-center mt-16'>
-          <Button className={classes.button} onClick={() => setOpenQr(true)}>
+          <Button
+            className={classes.button}
+            onClick={() =>
+              role === 'worker' ? router.push('/scancode') : setOpenQr(true)
+            }
+          >
             <span>{role === 'worker' ? 'Проверить билет' : 'Показать'}</span>
           </Button>
           <Button className={classes.button} onClick={() => setOpen(true)}>
