@@ -32,9 +32,11 @@ const Events = () => {
   return (
     <div className='w-full flex justify-center items-center px-16 pb-55'>
       <div className='grid grid-cols-1 items-center w-full gap-10'>
-        <Button className={classes.button2} onClick={() => setOpen(true)}>
-          Добавить событие
-        </Button>
+        {role !== 'client' && (
+          <Button className={classes.button2} onClick={() => setOpen(true)}>
+            Добавить событие
+          </Button>
+        )}
         {data.map(({ name, description, timestamp, cost }) => (
           <SimpleCard
             name={name}
