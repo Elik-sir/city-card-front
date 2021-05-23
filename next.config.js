@@ -13,7 +13,7 @@ const nextConfig = {
     config.plugins = [...config.plugins];
     return config;
   },
-  target: 'serverless',
+  //target: 'serverless',
 };
 
 module.exports = withPlugins(
